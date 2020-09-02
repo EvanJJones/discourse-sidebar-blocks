@@ -11,7 +11,8 @@ createWidget('sidebar-post-item', {
       h('a.item-title', {
         attributes: { href: url}
       }, attrs.title),
-      h('span.comment_count', {}, attrs.posts_count - 1),
+      h('span.comment_count', {}, `Replies: ${attrs.posts_count - 1}`),
+      h('span.like_count', {}, attrs.like_count)
       // h('span', this.attach('featured-link', {topic: attrs}))
     ]
   },
