@@ -33,7 +33,7 @@ export default createWidget('sidebar-top-posts', {
 
   html(attrs, state) {
     const messageBus = Discourse.__container__.lookup('message-bus:main')
-    messageBus.subscribe("/latest", data => {
+    messageBus.subscribe("/top", data => {
       this.refreshPosts();
     });
 
