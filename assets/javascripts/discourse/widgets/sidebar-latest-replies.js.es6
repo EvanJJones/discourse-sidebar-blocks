@@ -52,11 +52,11 @@ export default createWidget('sidebar-latest-replies', {
     if (state.loading) {
       result.push(h('div.spinner-container', h('div.spinner')));
     } else if (state.posts !== 'empty') {
-      result.push(h('h3.sidebar-heading', I18n.t('sidebar_blocks.recent_replies')));
-      const replies = state.posts.map(t => this.attach('sidebar-reply-item', t));
+      result.push(h('h3.sidebar-heading', I18n.t('sidebar_blocks.top_posts')));
+      const replies = state.posts.map(t => this.attach('sidebar-post-item', t));
       result.push(replies);
     } else {
-      result.push(h('div.no-messages', 'No recent replies.'))
+      result.push(h('div.no-messages', 'No top posts'))
     }
 
     return result;
