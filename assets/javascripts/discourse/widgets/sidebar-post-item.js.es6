@@ -1,6 +1,7 @@
 import { createWidget } from 'discourse/widgets/widget';
 import { h } from 'virtual-dom';
 import getURL from "discourse-common/lib/get-url";
+import { iconNode } from "discourse-common/lib/icon-library";
 
 createWidget('sidebar-post-item', {
   tagName: 'div.sidebar-post-item',
@@ -11,12 +12,16 @@ createWidget('sidebar-post-item', {
         return [
           h('img.sidebar-thumbnail', {attributes: { src: attrs.image_url }
           }),
-          h('div.sidebar-post-container', {attributes: { display: 'flex', flexDirection: 'column'}},
+          h('div.sidebar-post-container', {},
             [
               h('a.item-title', {
                 attributes: { href: url}
               }, attrs.title),
-              h('span.like_count', {}, attrs.like_count)
+              h('div.sidebar-like-area', {},[
+                h('span.like_count', {}, attrs.like_count),
+                iconNode('heart')
+              ])
+              
             ]
           )
           // h('span', this.attach('featured-link', {topic: attrs}))
