@@ -7,15 +7,24 @@ createWidget('sidebar-post-item', {
 
   html(attrs) {
     var url = getURL("/t/") + attrs.slug + "/" + attrs.id;
-    return [
-      h('img.thumbnail', {attributes: { src: attrs.image_url }
-      }),
-      h('a.item-title', {
-        attributes: { href: url}
-      }, attrs.title),
-      h('span.sidebar-topic-excerpt', {}, attrs.excerpt),
-      h('span.like_count', {}, attrs.like_count)
-      // h('span', this.attach('featured-link', {topic: attrs}))
+    if (attrs.image_url){
+        return [
+          h('img.sidebar-thumbnail', {attributes: { src: attrs.image_url }
+          }),
+          h('a.item-title', {
+            attributes: { href: url}
+          }, attrs.title),
+          h('span.like_count', {}, attrs.like_count)
+          // h('span', this.attach('featured-link', {topic: attrs}))
+        ]
+    } else {
+      return [
+          h('a.item-title', {
+            attributes: { href: url}
+          }, attrs.title),
+          h('span.like_count', {}, attrs.like_count)
+          // h('span', this.attach('featured-link', {topic: attrs}))
     ]
+  }
   },
 });
