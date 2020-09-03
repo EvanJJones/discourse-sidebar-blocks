@@ -11,10 +11,14 @@ createWidget('sidebar-post-item', {
         return [
           h('img.sidebar-thumbnail', {attributes: { src: attrs.image_url }
           }),
-          h('a.item-title', {
-            attributes: { href: url}
-          }, attrs.title),
-          h('span.like_count', {}, attrs.like_count)
+          h('div.sidebar-post-container', {attributes: { display: 'flex', flexDirection: 'column'}},
+            [
+              h('a.item-title', {
+                attributes: { href: url}
+              }, attrs.title),
+              h('span.like_count', {}, attrs.like_count)
+            ]
+          )
           // h('span', this.attach('featured-link', {topic: attrs}))
         ]
     } else {
