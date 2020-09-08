@@ -20,6 +20,10 @@ createWidget('sidebar-post-item', {
               h('div.sidebar-like-area', {},[
                 h('span.like_count', {}, attrs.like_count),
                 iconNode('heart')
+              ]),
+              h('div.sidebar-reply-area', {}, [
+                h('span.sidebar-reply-label', {}, 'Replies:'),
+                h('span.sidebar-reply-text', {}, attrs.posts_count - 1)
               ])
               
             ]
@@ -36,6 +40,10 @@ createWidget('sidebar-post-item', {
           h('div.sidebar-like-area', {},[
             h('span.like_count', {}, attrs.like_count),
             iconNode('heart')
+          ]),
+          h('div.sidebar-reply-area', {}, [
+            h('span.sidebar-reply-label', {}, 'Replies:'),
+            h('span.sidebar-reply-text', {}, attrs.posts_count - 1)
           ])
           
         ]
