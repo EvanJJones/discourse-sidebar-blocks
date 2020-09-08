@@ -15,7 +15,6 @@ export default createWidget('sidebar-top-posts', {
     this.state.posts = 'empty'
     getTopPosts(this).then((result) => {
       if (result.length) {
-        console.log(result)
         for (var i = result.length - 1; i >= 0; i--) {
           // limit to 5 max
           if (i > 4) {
