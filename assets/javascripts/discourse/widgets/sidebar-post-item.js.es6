@@ -17,15 +17,17 @@ createWidget('sidebar-post-item', {
               h('a.item-title', {
                 attributes: { href: url}
               }, attrs.title),
-              h('div.sidebar-like-area', {},[
-                h('span.like_count', {}, attrs.like_count),
-                iconNode('heart')
-              ]),
-              h('div.sidebar-reply-area', {}, [
-                h('span.sidebar-reply-label', {}, 'Replies:'),
-                h('span.sidebar-reply-text', {}, attrs.posts_count - 1)
+              h('div.sidebar-like-reply-container', {}, 
+              [
+                h('div.sidebar-like-area', {},[
+                  h('span.like_count', {}, attrs.like_count),
+                  iconNode('heart')
+                ]),
+                h('div.sidebar-reply-area', {}, [
+                  h('span.sidebar-reply-label', {}, 'Replies:'),
+                  h('span.sidebar-reply-text', {}, attrs.posts_count - 1)
+                ])
               ])
-              
             ]
           )
           // h('span', this.attach('featured-link', {topic: attrs}))
@@ -37,15 +39,17 @@ createWidget('sidebar-post-item', {
           h('a.item-title', {
             attributes: { href: url}
           }, attrs.title),
-          h('div.sidebar-like-area', {},[
-            h('span.like_count', {}, attrs.like_count),
-            iconNode('heart')
-          ]),
-          h('div.sidebar-reply-area', {}, [
-            h('span.sidebar-reply-label', {}, 'Replies:'),
-            h('span.sidebar-reply-text', {}, attrs.posts_count - 1)
-          ])
-          
+          h('div.sidebar-like-reply-container', {}, 
+              [
+                h('div.sidebar-like-area', {},[
+                  h('span.like_count', {}, attrs.like_count),
+                  iconNode('heart')
+                ]),
+                h('div.sidebar-reply-area', {}, [
+                  h('span.sidebar-reply-label', {}, 'Replies:'),
+                  h('span.sidebar-reply-text', {}, attrs.posts_count - 1)
+                ])
+              ])
         ]
       )
     ]
