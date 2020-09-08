@@ -28,11 +28,18 @@ createWidget('sidebar-post-item', {
         ]
     } else {
       return [
+        h('div.sidebar-post-container-no-image', {},
+        [
           h('a.item-title', {
             attributes: { href: url}
           }, attrs.title),
-          h('span.like_count', {}, attrs.like_count)
-          // h('span', this.attach('featured-link', {topic: attrs}))
+          h('div.sidebar-like-area', {},[
+            h('span.like_count', {}, attrs.like_count),
+            iconNode('heart')
+          ])
+          
+        ]
+      )
     ]
   }
   },
